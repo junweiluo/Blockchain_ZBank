@@ -1,0 +1,30 @@
+=============== May 4, 2020 (EDT) ===============
+16:41:10.333295 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:41:10.456595 db@open opening
+16:41:10.471968 version@stat F·[] S·0B[] Sc·[]
+16:41:10.483011 db@janitor F·2 G·0
+16:41:10.483114 db@open done T·26.472728ms
+16:41:10.517834 db@close closing
+16:41:10.518714 db@close done T·877.034µs
+=============== May 4, 2020 (EDT) ===============
+16:51:35.415111 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:51:35.421864 version@stat F·[] S·0B[] Sc·[]
+16:51:35.421955 db@open opening
+16:51:35.422083 journal@recovery F·1
+16:51:35.423582 journal@recovery recovering @1
+16:51:35.439401 memdb@flush created L0@2 N·15 S·1KiB "+\xfd\xa6..\xe3\x00\xd8,v5":"z\xb4\xe7..CD\t,v4"
+16:51:35.440411 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+16:51:35.472037 db@janitor F·3 G·0
+16:51:35.472076 db@open done T·50.095858ms
+16:51:35.480068 db@close closing
+16:51:35.480575 db@close done T·491.025µs
+=============== May 4, 2020 (EDT) ===============
+16:54:56.176177 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:54:56.177668 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+16:54:56.177756 db@open opening
+16:54:56.177892 journal@recovery F·1
+16:54:56.589320 journal@recovery recovering @3
+16:54:56.703317 memdb@flush created L0@5 N·1 S·399B "eth..\xac\x18\xb5,v17":"eth..\xac\x18\xb5,v17"
+16:54:56.713809 version@stat F·[2] S·1KiB[1KiB] Sc·[0.50]
+16:54:56.821078 db@janitor F·4 G·0
+16:54:56.821212 db@open done T·643.415171ms
