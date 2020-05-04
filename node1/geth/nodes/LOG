@@ -4,3 +4,8 @@
 16:54:57.171980 version@stat F·[] S·0B[] Sc·[]
 16:54:57.223021 db@janitor F·2 G·0
 16:54:57.223079 db@open done T·53.376654ms
+18:10:57.319624 memdb@flush N·42212 S·3MiB
+18:10:57.378788 memdb@flush created L0@3 N·42212 S·746KiB "loc..seq,v21":"version,v1"
+18:10:57.378956 version@stat F·[1] S·746KiB[746KiB] Sc·[0.25]
+18:10:57.382201 memdb@flush committed F·1 T·57.298556ms
+18:10:57.392488 journal@remove removed @1
