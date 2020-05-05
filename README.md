@@ -52,6 +52,7 @@ Be sure to include any preliminary setup information, such as installing depende
 * Create a "Screenshots" folder inside of the project directory.
 
 * Create accounts for two (or more) nodes for the network with a separate `datadir` for each using `geth`.
+https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/01.create_account1.png
 
 * Run `puppeth`, name your network, and select the option to configure a new genesis block.
 
