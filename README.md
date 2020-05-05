@@ -54,6 +54,7 @@ Be sure to include any preliminary setup information, such as installing depende
 * Create accounts for two (or more) nodes for the network with a separate `datadir` for each using `geth`.
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/01.create_account1.png)
 
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/02.create_account2.png)
 * Run `puppeth`, name your network, and select the option to configure a new genesis block.
 
 * Choose the `Clique (Proof of Authority)` consensus algorithm.
@@ -71,12 +72,15 @@ Be sure to include any preliminary setup information, such as installing depende
 * You can delete the `networkname-harmony.json` file.
 
 * Screenshot the `puppeth` configuration once complete and save it to the Screenshots folder.
-
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/03.puppeth_configuration.png)
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/04.puppeth_configuration.png)
 * Initialize each node with the new `networkname.json` with `geth`.
-
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/05.initiate_node1.png)
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/06.initiate_node2.png)
 * Run the first node, unlock the account, enable mining, and the RPC flag. Only one node needs RPC enabled.
-
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/07.unlock_node1.png)
 * Set a different peer port for the second node and use the first node's `enode` address as the `bootnode` flag.
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/08.unlock_node2.png)
 
 * Be sure to unlock the account and enable mining on the second node!
 
@@ -87,20 +91,17 @@ Be sure to include any preliminary setup information, such as installing depende
 * Use the MyCrypto GUI wallet to connect to the node with the exposed RPC port.
 
 * You will need to use a custom network, and include the chain ID, and use ETH as the currency.
-
-![custom-node](Images/custom-node.png)
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/09.setup_account.png)
 
 * Import the keystore file from the `node1/keystore` directory into MyCrypto. This will import the private key.
 
 * Send a transaction from the `node1` account to the `node2` account.
-
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/10.send_ETH.png)
 * Copy the transaction hash and paste it into the "TX Status" section of the app, or click "TX Status" in the popup.
-
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/11.successful_transaction.png)
 * Screenshot the transaction metadata (status, tx hash, block number, etc) and save it to your Screenshots folder.
 
 * Celebrate, you just created a blockchain and sent a transaction!
-
-![transaction-success](Images/transaction-success.png)
 
 ### Create a repository, and instructions for launching the chain
 
