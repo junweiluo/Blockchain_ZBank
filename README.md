@@ -2,7 +2,8 @@
 
 * Create a new project directory for your new network. 
 
-Create a folder that contains all blockchain tools.
+Activate Ethereum virual environment.
+Create a folder <Blockchain-ZBank) that contains all blockchain tools.
 
 * Create accounts for two (or more) nodes for the network with a separate `datadir` for each using `geth`.
 
@@ -11,33 +12,46 @@ Create a folder that contains all blockchain tools.
 
 * Run `puppeth`, name your network, and select the option to configure a new genesis block.
 
+Open a new terminal, activate Ethereum virtual environment, navigate to the project folder
+
 ./puppeth
 
 Specify a network name:
-XXX
+
+<your choice>
 
 What would you like to do?
+
 2. Configure new genesis
 
 What would you like to do?
+
 1. Create new genesis from scratch	
 
 Which consensus engine to use
+
 2. Clique - proof of authority
 
 Which accounts should be pre-funded? (advisable at least one)
+
 > 0x
 
 * Paste them again in the list of accounts to pre-fund. There are no block rewards in PoA, so you'll need to pre-fund.
+
 Which accounts should be pre-funded? (advisable at least one)
+
 > 0x
+
 > 0x
 
 * You can choose `no` for pre-funding the pre-compiled accounts (0x1 .. 0xff) with wei. This keeps the genesis cleaner.
+
 Should the precompile-addresses (0x1 .. 0xff) be pre-funded with 1 wei? (advisable yes)
+
 > no
 
 Specify your chain/network ID if you want an explicit one (default = random)
+
 >
 
 * Complete the rest of the prompts, and when you are back at the main menu, choose the "Manage existing genesis" option.
@@ -63,15 +77,28 @@ Which folder to save the genesis specs into? (default = current)
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/04.puppeth_configuration.png)
 
 * Initialize each node with the new `networkname.json` with `geth`.
+
+Open a new terminal, activate virtual environment, navigate to project folder.
+
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/05.initiate_node1.png)
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/06.initiate_node2.png)
 
 * Run the first node, unlock the account, enable mining, and the RPC flag. Only one node needs RPC enabled.
+
+In a different terminal.
+
 ./geth --datadir node1 --networkid 1000 --unlock <address> --mine --minerthreads 1 --allow-insecure-unlock
+ 
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/07.unlock_node1.png)
+
 * Set a different peer port for the second node and use the first node's `enode` address as the `bootnode` flag.
+
+In a differernt terminal
+
 ./geth --datadir node2 --networkid 1000 --port 30304 --rpc —unlock <Address> --bootnodes "enode:<from node1>" --allow-insecure-unlock
+ 
 * Be sure to unlock the account and enable mining on the second node!
+
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/08.unlock_node2.png)
 
 * You should now see both nodes producing new blocks, congratulations!
