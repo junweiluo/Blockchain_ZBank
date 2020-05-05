@@ -80,6 +80,11 @@ Which folder to save the genesis specs into? (default = current)
 
 Open a new terminal, activate virtual environment, navigate to project folder.
 
+./geth init nyc.json --datadir node1
+
+./geth init nyc.json --datadir node2
+
+
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/05.initiate_node1.png)
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/06.initiate_node2.png)
 
