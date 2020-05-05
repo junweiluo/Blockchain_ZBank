@@ -1,88 +1,78 @@
-# Proof of Authority Development Chain
+# Build a blockchain step by step
 
-For this assignment, you will take on the role of a new developer at a small bank.
+* Create a new project directory for your new network. 
 
-Your mission, should you choose to accept it, will be to set up a testnet blockchain for your organization.
-
-To do this, you will create and submit four deliverables:
-
-* Set up your custom testnet blockchain.
-
-* Send a test transaction.
-
-* Create a repository.
-
-* Write instructions on how to use the chain for the rest of your team.
-
-## Background
-
-You have just landed a new job at ZBank, a small, innovative bank that is interested in exploring what
-blockchain technology can do for them and their customers.
-
-Your first project at the company is to set up a private testnet that you and your team of developers
-can use to explore potentials for blockchain at ZBank.
-
-You have decided on setting up a testnet because:
-
-There is no real money involved, which will give your team of developers the freedom to experiment.
-
-Testnets allows for offline development.
-
-In order to set up a testnet, you will need to use the following skills/tools we learned in class:
-
-* Puppeth, to generate your genesis block.
-
-* Geth, a command-line tool, to create keys, initialize nodes, and connect the nodes together.
-
-* The Clique Proof of Authority algorithm.
-
-Tokens inherently have no value here, so we will provide pre-configured accounts and nodes for easy setup.
-
-After creating the custom development chain, create documentation for others on how to start it using the pre-configured
-nodes and accounts. You can name the network anything you want, have fun with it!
-
-Be sure to include any preliminary setup information, such as installing dependencies and environment configuration.
-
-## Instructions
-
-### Setup the custom out-of-the-box blockchain
-
-* Create a new project directory for your new network. Call it whatever you want!
-
-* Create a "Screenshots" folder inside of the project directory.
+Create a folder that contains all blockchain tools.
 
 * Create accounts for two (or more) nodes for the network with a separate `datadir` for each using `geth`.
-![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/01.create_account1.png)
 
-![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/02.create_account2.png)
+ ./geth account new --datadir node1
+ ./geth account new --datadir node2
+
 * Run `puppeth`, name your network, and select the option to configure a new genesis block.
 
-* Choose the `Clique (Proof of Authority)` consensus algorithm.
+./puppeth
 
-* Paste both account addresses from the first step one at a time into the list of accounts to seal.
+Specify a network name:
+XXX
+
+What would you like to do?
+2. Configure new genesis
+
+What would you like to do?
+1. Create new genesis from scratch	
+
+Which consensus engine to use
+2. Clique - proof of authority
+
+Which accounts should be pre-funded? (advisable at least one)
+> 0x
 
 * Paste them again in the list of accounts to pre-fund. There are no block rewards in PoA, so you'll need to pre-fund.
+Which accounts should be pre-funded? (advisable at least one)
+> 0x
+> 0x
 
 * You can choose `no` for pre-funding the pre-compiled accounts (0x1 .. 0xff) with wei. This keeps the genesis cleaner.
+Should the precompile-addresses (0x1 .. 0xff) be pre-funded with 1 wei? (advisable yes)
+> no
+
+Specify your chain/network ID if you want an explicit one (default = random)
+>
 
 * Complete the rest of the prompts, and when you are back at the main menu, choose the "Manage existing genesis" option.
 
-* Export genesis configurations. This will fail to create two of the files, but you only need `networkname.json`.
+What would you like to do? (default = stats)
+ 1. Show network stats
+ 2. Manage existing genesis
+ 3. Track new remote server
+ 4. Deploy network components
+> 2
 
-* You can delete the `networkname-harmony.json` file.
+* Export genesis configurations. This will fail to create two of the files, but you only need `networkname.json`.
+ 1. Modify existing configurations
+ 2. Export genesis configurations
+ 3. Remove genesis configuration
+> 2
+
+Which folder to save the genesis specs into? (default = current)
+>
 
 * Screenshot the `puppeth` configuration once complete and save it to the Screenshots folder.
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/03.puppeth_configuration.png)
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/04.puppeth_configuration.png)
+
 * Initialize each node with the new `networkname.json` with `geth`.
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/05.initiate_node1.png)
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/06.initiate_node2.png)
+
 * Run the first node, unlock the account, enable mining, and the RPC flag. Only one node needs RPC enabled.
+./geth --datadir node1 --networkid 1000 --unlock <address> --mine --minerthreads 1 --allow-insecure-unlock
 ![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/07.unlock_node1.png)
 * Set a different peer port for the second node and use the first node's `enode` address as the `bootnode` flag.
-![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/08.unlock_node2.png)
-
+./geth --datadir node2 --networkid 1000 --port 30304 --rpc —unlock <Address> --bootnodes "enode:<from node1>" --allow-insecure-unlock
 * Be sure to unlock the account and enable mining on the second node!
+![](https://github.com/junweiluo/Blockchain_ZBank/blob/master/Screenshots/08.unlock_node2.png)
 
 * You should now see both nodes producing new blocks, congratulations!
 
